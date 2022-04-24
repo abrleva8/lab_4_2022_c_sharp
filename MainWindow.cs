@@ -28,5 +28,10 @@ namespace lab_4 {
 
             dataGridView_dataBase.DataSource = dataTable;
         }
+
+        private void buttonAdd_Click(object sender, EventArgs e) {
+            EditWindow editWindow = new EditWindow();
+            editWindow.Show();
+        }
     }
 }
