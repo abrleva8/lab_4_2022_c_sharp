@@ -16,7 +16,7 @@ namespace lab_4 {
             InitializeConnection();
         }
 
-        private void InitializeConnection() {
+        public void InitializeConnection() {
             SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=bank.db");
 
             string query = "SELECT* from accounts";
@@ -31,7 +31,8 @@ namespace lab_4 {
 
         private void buttonAdd_Click(object sender, EventArgs e) {
             EditWindow editWindow = new EditWindow();
-            editWindow.Show();
+            editWindow.ShowDialog();
+            InitializeConnection();
         }
     }
 }

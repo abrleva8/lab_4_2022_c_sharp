@@ -34,6 +34,7 @@
             this.labelMoney = new System.Windows.Forms.Label();
             this.numericUpDownMoney = new System.Windows.Forms.NumericUpDown();
             this.comboBoxCurrency = new System.Windows.Forms.ComboBox();
+            this.button_OK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMoney)).BeginInit();
             this.SuspendLayout();
@@ -112,7 +113,7 @@
             // labelMoney
             // 
             this.labelMoney.AutoSize = true;
-            this.labelMoney.Location = new System.Drawing.Point(24, 202);
+            this.labelMoney.Location = new System.Drawing.Point(24, 197);
             this.labelMoney.Name = "labelMoney";
             this.labelMoney.Size = new System.Drawing.Size(39, 13);
             this.labelMoney.TabIndex = 9;
@@ -122,7 +123,6 @@
             // 
             this.numericUpDownMoney.Location = new System.Drawing.Point(90, 195);
             this.numericUpDownMoney.Name = "numericUpDownMoney";
-            this.numericUpDownMoney.ReadOnly = true;
             this.numericUpDownMoney.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownMoney.TabIndex = 8;
             // 
@@ -142,11 +142,22 @@
             this.comboBoxCurrency.TabIndex = 10;
             this.comboBoxCurrency.Text = "$";
             // 
+            // button_OK
+            // 
+            this.button_OK.Location = new System.Drawing.Point(112, 250);
+            this.button_OK.Name = "button_OK";
+            this.button_OK.Size = new System.Drawing.Size(99, 23);
+            this.button_OK.TabIndex = 11;
+            this.button_OK.Text = "OK";
+            this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
+            // 
             // EditWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 297);
+            this.Controls.Add(this.button_OK);
             this.Controls.Add(this.comboBoxCurrency);
             this.Controls.Add(this.labelMoney);
             this.Controls.Add(this.numericUpDownMoney);
@@ -183,5 +194,6 @@
         private System.Windows.Forms.Label labelMoney;
         private System.Windows.Forms.NumericUpDown numericUpDownMoney;
         private System.Windows.Forms.ComboBox comboBoxCurrency;
+        private System.Windows.Forms.Button button_OK;
     }
 }
