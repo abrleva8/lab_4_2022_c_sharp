@@ -16,6 +16,16 @@ namespace lab_4 {
             InitializeComponent();
         }
 
+        public EditWindow(Account account) {
+            InitializeComponent();
+            this.numericUpDownNumber.Value = account.Number;
+            this.textBoxName.Text = account.Name;
+            this.textBoxSurname.Text = account.Surname;
+            this.comboBoxCountry.Text = account.Country;
+            this.numericUpDownMoney.Value = account.Money;
+            this.comboBoxCurrency.Text = account.Currency;
+        }
+
         private void button_OK_Click(object sender, EventArgs e) {
             int number = (int) this.numericUpDownNumber.Value;
             string name = this.textBoxName.Text;
@@ -23,7 +33,7 @@ namespace lab_4 {
             string country = this.comboBoxCountry.Text;
             decimal money = this.numericUpDownMoney.Value;
             string currency = this.comboBoxCurrency.Text;
-            Account account = new Account(number, name, surname, country, money, currency);
+            //Account account = new Account(number, name, surname, country, money, currency);
 
             SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=bank.db");
             sqLiteConnection.Open();
@@ -34,6 +44,7 @@ namespace lab_4 {
             sqLiteCommand.ExecuteNonQuery();
             sqLiteConnection.Close();
             this.Close();
+            MessageBox.Show("The row was added!", "Add", MessageBoxButtons.OK);
         }
     }
 }

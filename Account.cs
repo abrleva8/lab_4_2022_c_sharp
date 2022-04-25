@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace lab_4 {
-    internal class Account {
+    public class Account {
         public Account(int number, string name, string surname, string country,
             decimal money, string currency) {
             Number = number;
@@ -16,11 +16,11 @@ namespace lab_4 {
             Currency = currency;
         }
 
-        private int Number { get; set; }
-        private string Name { get; set; }
-        private string Surname { get; set; }
-        private string Country { get; set; }
-        private Decimal Money { get; set; }
-        private string Currency { get; set; }
+        public int Number { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Country { get; set; }
+        public Decimal Money { get; set; }
+        public string Currency { get; set; }
     }
 }

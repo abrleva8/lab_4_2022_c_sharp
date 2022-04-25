@@ -98,6 +98,7 @@
             // 
             // comboBoxCountry
             // 
+            this.comboBoxCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCountry.FormattingEnabled = true;
             this.comboBoxCountry.Items.AddRange(new object[] {
             "Armenia",
@@ -108,7 +109,6 @@
             this.comboBoxCountry.Name = "comboBoxCountry";
             this.comboBoxCountry.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCountry.TabIndex = 7;
-            this.comboBoxCountry.Text = "Russia";
             // 
             // labelMoney
             // 
@@ -133,6 +133,7 @@
             // 
             // comboBoxCurrency
             // 
+            this.comboBoxCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCurrency.FormattingEnabled = true;
             this.comboBoxCurrency.Items.AddRange(new object[] {
             "$",
@@ -145,7 +146,6 @@
             this.comboBoxCurrency.Name = "comboBoxCurrency";
             this.comboBoxCurrency.Size = new System.Drawing.Size(39, 21);
             this.comboBoxCurrency.TabIndex = 10;
-            this.comboBoxCurrency.Text = "$";
             // 
             // button_OK
             // 

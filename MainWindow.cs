@@ -20,7 +20,7 @@ namespace lab_4 {
         public void InitializeConnection() {
             SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=bank.db");
 
-            string query = "SELECT* from accounts";
+            string query = "select* from accounts";
             SQLiteCommand cmd = new SQLiteCommand(query, sqLiteConnection);
 
             DataTable dataTable = new DataTable();
@@ -37,8 +37,8 @@ namespace lab_4 {
         }
 
         private void buttonDelete_Click(object sender, EventArgs e) {
-            int index = dataGridView_dataBase.CurrentCell.RowIndex;
-            int key = Int32.Parse(dataGridView_dataBase.Rows[index].Cells[0].Value.ToString());
+            int cellRowIndex = dataGridView_dataBase.CurrentCell.RowIndex;
+            int key = Int32.Parse(dataGridView_dataBase.Rows[cellRowIndex].Cells[0].Value.ToString());
 
             SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=bank.db");
             sqLiteConnection.Open();
@@ -48,10 +48,34 @@ namespace lab_4 {
             cmd.ExecuteNonQuery();
             sqLiteConnection.Close();
             InitializeConnection();
+            if (dataGridView_dataBase.RowCount == 0) {
+                buttonDelete.Enabled = false;
+                buttonEdit.Enabled = false;
+            }
         }
 
         private void dataGridView_dataBase_CellClick(object sender, DataGridViewCellEventArgs e) {
             buttonDelete.Enabled = true;
+            buttonEdit.Enabled = true;
+        }
+
+        private void dataGridView_dataBase_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
+            if (dataGridView_dataBase.Rows.Count > 0) {
+                dataGridView_dataBase.Rows[0].Selected = false;
+            }
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e) {
+            int cellRowIndex = dataGridView_dataBase.CurrentCell.RowIndex;
+            int number = Int32.Parse(dataGridView_dataBase.Rows[cellRowIndex].Cells[0].Value.ToString());
+            string name = dataGridView_dataBase.Rows[cellRowIndex].Cells[1].Value.ToString();
+            string surname = dataGridView_dataBase.Rows[cellRowIndex].Cells[2].Value.ToString();
+            string country = dataGridView_dataBase.Rows[cellRowIndex].Cells[3].Value.ToString();
+            decimal money = Decimal.Parse(dataGridView_dataBase.Rows[cellRowIndex].Cells[4].Value.ToString());
+            string currency = dataGridView_dataBase.Rows[cellRowIndex].Cells[5].Value.ToString();
+            Account account = new Account(number, name, surname, country, money, currency);
+            EditWindow editWindow = new EditWindow(account);
+            editWindow.ShowDialog();
         }
     }
 }

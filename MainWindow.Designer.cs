@@ -26,6 +26,7 @@
             this.dataGridView_dataBase = new System.Windows.Forms.DataGridView();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_dataBase)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,6 +41,7 @@
             this.dataGridView_dataBase.Size = new System.Drawing.Size(781, 376);
             this.dataGridView_dataBase.TabIndex = 0;
             this.dataGridView_dataBase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_dataBase_CellClick);
+            this.dataGridView_dataBase.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView_dataBase_DataBindingComplete);
             // 
             // buttonAdd
             // 
@@ -68,11 +70,26 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // buttonEdit
+            // 
+            this.buttonEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonEdit.Enabled = false;
+            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonEdit.Location = new System.Drawing.Point(507, 394);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(100, 50);
+            this.buttonEdit.TabIndex = 3;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.dataGridView_dataBase);
@@ -90,6 +107,7 @@
         private System.Windows.Forms.DataGridView dataGridView_dataBase;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }
 
