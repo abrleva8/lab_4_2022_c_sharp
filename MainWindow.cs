@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Linq.Expressions;
 
 namespace lab_4 {
     public partial class MainWindow : Form {
@@ -33,6 +34,24 @@ namespace lab_4 {
             EditWindow editWindow = new EditWindow();
             editWindow.ShowDialog();
             InitializeConnection();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e) {
+            int index = dataGridView_dataBase.CurrentCell.RowIndex;
+            int key = Int32.Parse(dataGridView_dataBase.Rows[index].Cells[0].Value.ToString());
+
+            SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=bank.db");
+            sqLiteConnection.Open();
+
+            string query = $"delete from accounts where number={key}";
+            SQLiteCommand cmd = new SQLiteCommand(query, sqLiteConnection);
+            cmd.ExecuteNonQuery();
+            sqLiteConnection.Close();
+            InitializeConnection();
+        }
+
+        private void dataGridView_dataBase_CellClick(object sender, DataGridViewCellEventArgs e) {
+            buttonDelete.Enabled = true;
         }
     }
 }

@@ -122,6 +122,11 @@
             // numericUpDownMoney
             // 
             this.numericUpDownMoney.Location = new System.Drawing.Point(90, 195);
+            this.numericUpDownMoney.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numericUpDownMoney.Name = "numericUpDownMoney";
             this.numericUpDownMoney.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownMoney.TabIndex = 8;
