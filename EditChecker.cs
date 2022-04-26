@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 namespace lab_4 {
     class EditChecker {
 
-        private bool IsNumber(int number) {
+        private static bool IsNumber(int number) {
             return number > 0;
         }
 
-        private bool IsName(string name) {
+        private static bool IsName(string name) {
             return name.All(char.IsLetter);
         }
 
-        private bool IsCountry(string country) {
+        private static bool IsCountry(string country) {
             return country.Length > 0;
         }
 
-        private bool IsCurrency(string currency) {
+        private static bool IsCurrency(string currency) {
             return currency.Length > 0;
         }
 
-        public bool IsGoodData(Account account) {
+        public static bool IsGoodData(Account account) {
             return IsNumber(account.Number) && IsName(account.Name) && IsName(account.Surname)
                    && IsCountry(account.Country) && IsCurrency(account.Currency);
         }

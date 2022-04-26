@@ -26,6 +26,12 @@ namespace lab_4 {
             decimal money = this.numericUpDownMoney.Value;
             string currency = this.comboBoxCurrency.Text;
             Account account = new Account(number, name, surname, country, money, currency);
+
+            if (!EditChecker.IsGoodData(account)) {
+                MessageBox.Show("Wrong data! Check it, please!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
             bool isExists = DataBaseWorker.IsExists(number);
 
             if (isExists) {

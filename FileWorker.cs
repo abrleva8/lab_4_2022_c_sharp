@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace lab_4 {
     public class FileWorker {
@@ -32,6 +33,24 @@ namespace lab_4 {
             }
 
             return number == 1;
+        }
+
+
+        public static void WriteDataGridToTxt(DataGridView dataGridView ,string filename, char sep=',') {
+            using (var streamWriter = new StreamWriter(filename)) {
+
+                foreach (DataGridViewColumn column in dataGridView.Columns) {
+                    streamWriter.Write(column.HeaderText + sep);
+                }
+                streamWriter.WriteLine();
+
+                foreach (DataGridViewRow row in dataGridView.Rows) {
+                    foreach (DataGridViewCell cell in row.Cells) {
+                        streamWriter.Write(cell.Value.ToString() + sep);
+                    }
+                    streamWriter.WriteLine();
+                }
+            }
         }
     }
 }

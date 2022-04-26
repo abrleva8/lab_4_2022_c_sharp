@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab_4 {
     public class DataBaseWorker {
@@ -55,6 +50,31 @@ namespace lab_4 {
             command.Parameters.Add(new SQLiteParameter("@currency", account.Currency));
             command.ExecuteNonQuery();
             sqLiteConnection.Close();
+        }
+
+
+        public static void Delete(int key) {
+            SQLiteConnection sqLiteConnection = new SQLiteConnection(
+                ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            sqLiteConnection.Open();
+            SQLiteCommand command = sqLiteConnection.CreateCommand();
+            command.CommandText = "DELETE from accounts WHERE number=@key";
+            command.Parameters.Add(new SQLiteParameter("@key", key));
+            command.ExecuteNonQuery();
+            sqLiteConnection.Close();
+        }
+
+        public static DataTable GetAccountsTable() {
+            SQLiteConnection sqLiteConnection = new SQLiteConnection(
+                ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            sqLiteConnection.Open();
+            SQLiteCommand command = sqLiteConnection.CreateCommand();
+            command.CommandText = "SELECT* from accounts";
+            DataTable dataTable = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+            adapter.Fill(dataTable);
+            sqLiteConnection.Close();
+            return dataTable;
         }
     }
 }
