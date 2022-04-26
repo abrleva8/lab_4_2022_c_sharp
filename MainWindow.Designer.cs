@@ -27,18 +27,22 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_dataBase)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView_dataBase
             // 
             this.dataGridView_dataBase.AllowUserToAddRows = false;
             this.dataGridView_dataBase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_dataBase.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView_dataBase.Location = new System.Drawing.Point(12, 27);
             this.dataGridView_dataBase.MultiSelect = false;
             this.dataGridView_dataBase.Name = "dataGridView_dataBase";
             this.dataGridView_dataBase.ReadOnly = true;
-            this.dataGridView_dataBase.Size = new System.Drawing.Size(675, 376);
+            this.dataGridView_dataBase.Size = new System.Drawing.Size(675, 361);
             this.dataGridView_dataBase.TabIndex = 0;
             this.dataGridView_dataBase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_dataBase_CellClick);
             this.dataGridView_dataBase.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView_dataBase_DataBindingComplete);
@@ -84,6 +88,31 @@
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(689, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,12 +122,17 @@
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.dataGridView_dataBase);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.Text = "DataBaseApplication";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_dataBase)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -108,6 +142,9 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

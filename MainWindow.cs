@@ -15,6 +15,16 @@ namespace lab_4 {
         public MainWindow() {
             InitializeComponent();
             InitializeConnection();
+            GreetingWorker();
+        }
+
+        private void GreetingWorker() {
+            bool isAgain = FileWorker.ReadStartMessageFile("check_box_info.txt"); ;
+
+            AboutForm aboutForm = new AboutForm(isAgain);
+            if (aboutForm.IsAgain) {
+                aboutForm.ShowDialog();
+            }
         }
 
         public void InitializeConnection() {
@@ -77,6 +87,11 @@ namespace lab_4 {
             EditWindow editWindow = new EditWindow(account);
             editWindow.ShowDialog();
             InitializeConnection();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+            AboutForm aboutForm = new AboutForm(true);
+            aboutForm.ShowDialog();
         }
     }
 }
