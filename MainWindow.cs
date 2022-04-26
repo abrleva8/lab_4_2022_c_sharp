@@ -76,6 +76,7 @@ namespace lab_4 {
             Account account = new Account(number, name, surname, country, money, currency);
             EditWindow editWindow = new EditWindow(account);
             editWindow.ShowDialog();
+            InitializeConnection();
         }
     }
 }

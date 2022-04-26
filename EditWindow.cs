@@ -37,14 +37,36 @@ namespace lab_4 {
 
             SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=bank.db");
             sqLiteConnection.Open();
-            string addAccount = "insert into accounts (number,name,surname,country,money,currency)" +
-                                $"values ({number}, '{name}', '{surname}', '{country}', {money}, '{currency}');";
+            string query = $"SELECT number FROM accounts WHERE number = {number}";
 
-            SQLiteCommand sqLiteCommand = new SQLiteCommand(addAccount, sqLiteConnection);
-            sqLiteCommand.ExecuteNonQuery();
+
+            SQLiteCommand cmd = new SQLiteCommand(query, sqLiteConnection);
+            DataTable dataTable = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            adapter.Fill(dataTable);
+
+            if (dataTable.Rows.Count > 0) {
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Do you want to edit the row?",
+                    "Exit", buttons);
+                if (result == DialogResult.Yes) {
+                    string addAccount = $"update accounts set number={number}, name = '{name}', surname = '{surname}'," +
+                                        $"country = '{country}', money = {money}, currency = '{currency}' where number = {number}";
+                    SQLiteCommand sqLiteCommand = new SQLiteCommand(addAccount, sqLiteConnection);
+                    sqLiteCommand.ExecuteNonQuery();
+                    MessageBox.Show("The row was edited!", "Edit", MessageBoxButtons.OK);
+                }
+            } else {
+                string addAccount = "insert into accounts (number,name,surname,country,money,currency)" +
+                                    $"values ({number}, '{name}', '{surname}', '{country}', {money}, '{currency}');";
+                SQLiteCommand sqLiteCommand = new SQLiteCommand(addAccount, sqLiteConnection);
+                sqLiteCommand.ExecuteNonQuery();
+                MessageBox.Show("The row was added!", "Add", MessageBoxButtons.OK);
+            }
+
             sqLiteConnection.Close();
             this.Close();
-            MessageBox.Show("The row was added!", "Add", MessageBoxButtons.OK);
+            
         }
     }
 }

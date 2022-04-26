@@ -38,7 +38,7 @@
             this.dataGridView_dataBase.MultiSelect = false;
             this.dataGridView_dataBase.Name = "dataGridView_dataBase";
             this.dataGridView_dataBase.ReadOnly = true;
-            this.dataGridView_dataBase.Size = new System.Drawing.Size(781, 376);
+            this.dataGridView_dataBase.Size = new System.Drawing.Size(675, 376);
             this.dataGridView_dataBase.TabIndex = 0;
             this.dataGridView_dataBase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_dataBase_CellClick);
             this.dataGridView_dataBase.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView_dataBase_DataBindingComplete);
@@ -48,7 +48,7 @@
             this.buttonAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAdd.Location = new System.Drawing.Point(121, 394);
+            this.buttonAdd.Location = new System.Drawing.Point(67, 394);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(100, 50);
             this.buttonAdd.TabIndex = 1;
@@ -62,7 +62,7 @@
             this.buttonDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonDelete.Enabled = false;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDelete.Location = new System.Drawing.Point(310, 394);
+            this.buttonDelete.Location = new System.Drawing.Point(279, 394);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(100, 50);
             this.buttonDelete.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.buttonEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonEdit.Enabled = false;
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonEdit.Location = new System.Drawing.Point(507, 394);
+            this.buttonEdit.Location = new System.Drawing.Point(492, 394);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(100, 50);
             this.buttonEdit.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(689, 450);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
