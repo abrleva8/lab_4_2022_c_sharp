@@ -23,44 +23,32 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             this.checkBoxShowAgain = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // checkBoxShowAgain
             // 
-            this.checkBoxShowAgain.AutoSize = true;
-            this.checkBoxShowAgain.Location = new System.Drawing.Point(128, 155);
+            resources.ApplyResources(this.checkBoxShowAgain, "checkBoxShowAgain");
             this.checkBoxShowAgain.Name = "checkBoxShowAgain";
-            this.checkBoxShowAgain.Size = new System.Drawing.Size(108, 17);
-            this.checkBoxShowAgain.TabIndex = 0;
-            this.checkBoxShowAgain.Text = "Don\'t show again";
             this.checkBoxShowAgain.UseVisualStyleBackColor = true;
             this.checkBoxShowAgain.CheckedChanged += new System.EventHandler(this.checkBoxShowAgain_CheckedChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(90, 44);
-            this.textBox1.Multiline = true;
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(191, 84);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "The first variation of the fourth task.\r\n\r\nDatabase of the bank accounts.\r\n\r\nLevo" +
-    "n Abramyan, group 404, 2022.";
             // 
             // AboutForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 219);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.checkBoxShowAgain);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "AboutForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Information";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AboutForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

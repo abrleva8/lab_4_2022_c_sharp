@@ -47,20 +47,26 @@ namespace lab_4 {
         }
 
         private void buttonDelete_Click(object sender, EventArgs e) {
+            
             int cellRowIndex = dataGridView_dataBase.CurrentCell.RowIndex;
             int key = Int32.Parse(dataGridView_dataBase.Rows[cellRowIndex].Cells[0].Value.ToString());
 
-            SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=bank.db");
-            sqLiteConnection.Open();
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show($"Do you want to delete the row with number {key}?",
+                "Delete", buttons);
+            if (result == DialogResult.Yes) {
+                SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=bank.db");
+                sqLiteConnection.Open();
 
-            string query = $"delete from accounts where number={key}";
-            SQLiteCommand cmd = new SQLiteCommand(query, sqLiteConnection);
-            cmd.ExecuteNonQuery();
-            sqLiteConnection.Close();
-            InitializeConnection();
-            if (dataGridView_dataBase.RowCount == 0) {
-                buttonDelete.Enabled = false;
-                buttonEdit.Enabled = false;
+                string query = $"delete from accounts where number={key}";
+                SQLiteCommand cmd = new SQLiteCommand(query, sqLiteConnection);
+                cmd.ExecuteNonQuery();
+                sqLiteConnection.Close();
+                InitializeConnection();
+                if (dataGridView_dataBase.RowCount == 0) {
+                    buttonDelete.Enabled = false;
+                    buttonEdit.Enabled = false;
+                }
             }
         }
 

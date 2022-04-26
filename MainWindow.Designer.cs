@@ -37,6 +37,8 @@
             // dataGridView_dataBase
             // 
             this.dataGridView_dataBase.AllowUserToAddRows = false;
+            this.dataGridView_dataBase.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView_dataBase.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_dataBase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_dataBase.Location = new System.Drawing.Point(12, 27);
             this.dataGridView_dataBase.MultiSelect = false;
@@ -109,7 +111,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -127,6 +129,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainWindow";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "DataBaseApplication";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_dataBase)).EndInit();
             this.menuStrip1.ResumeLayout(false);
