@@ -4,9 +4,9 @@ using System.Data.SQLite;
 
 namespace lab_4 {
     public class DataBaseWorker {
-        public static bool IsExists(int number) {
+        public static bool IsExists(int number, string conn="DefaultConnection") {
             SQLiteConnection sqLiteConnection = new SQLiteConnection(
-                                                        ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                                                        ConfigurationManager.ConnectionStrings[conn].ConnectionString);
             sqLiteConnection.Open();
             SQLiteCommand command = sqLiteConnection.CreateCommand();
             command.CommandText = "SELECT number FROM accounts WHERE number = @number";
@@ -18,9 +18,9 @@ namespace lab_4 {
             return dataTable.Rows.Count > 0;
         }
 
-        public static void Edit(Account account) {
+        public static void Edit(Account account, string conn="DefaultConnection") {
             SQLiteConnection sqLiteConnection = new SQLiteConnection(
-                                                        ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                                                        ConfigurationManager.ConnectionStrings[conn].ConnectionString);
             sqLiteConnection.Open();
             SQLiteCommand command = sqLiteConnection.CreateCommand();
             command.CommandText = "UPDATE accounts SET number=@number, name=@name, surname=@surname," +
@@ -35,9 +35,9 @@ namespace lab_4 {
             sqLiteConnection.Close();
         }
 
-        public static void Add(Account account) {
+        public static void Add(Account account, string conn="DefaultConnection") {
             SQLiteConnection sqLiteConnection = new SQLiteConnection(
-                ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                ConfigurationManager.ConnectionStrings[conn].ConnectionString);
             sqLiteConnection.Open();
             SQLiteCommand command = sqLiteConnection.CreateCommand();
             command.CommandText = "INSERT into accounts (number,name,surname,country,money,currency)" +
@@ -53,9 +53,9 @@ namespace lab_4 {
         }
 
 
-        public static void Delete(int key) {
+        public static void Delete(int key, string conn="DefaultConnection") {
             SQLiteConnection sqLiteConnection = new SQLiteConnection(
-                ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                ConfigurationManager.ConnectionStrings[conn].ConnectionString);
             sqLiteConnection.Open();
             SQLiteCommand command = sqLiteConnection.CreateCommand();
             command.CommandText = "DELETE from accounts WHERE number=@key";
@@ -64,9 +64,9 @@ namespace lab_4 {
             sqLiteConnection.Close();
         }
 
-        public static DataTable GetAccountsTable() {
+        public static DataTable GetTable(string conn="DefaultConnection") {
             SQLiteConnection sqLiteConnection = new SQLiteConnection(
-                ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                ConfigurationManager.ConnectionStrings[conn].ConnectionString);
             sqLiteConnection.Open();
             SQLiteCommand command = sqLiteConnection.CreateCommand();
             command.CommandText = "SELECT* from accounts";
@@ -76,5 +76,7 @@ namespace lab_4 {
             sqLiteConnection.Close();
             return dataTable;
         }
+
+
     }
 }

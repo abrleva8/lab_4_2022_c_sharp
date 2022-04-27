@@ -22,7 +22,7 @@ namespace lab_4 {
         }
 
         public void InitializeConnection() {
-            dataGridView_dataBase.DataSource = DataBaseWorker.GetAccountsTable();
+            dataGridView_dataBase.DataSource = DataBaseWorker.GetTable();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e) {

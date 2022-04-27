@@ -73,6 +73,7 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Account.cs" />
+    <Compile Include="Assert.cs" />
     <Compile Include="DataBaseWorker.cs" />
     <Compile Include="EditChecker.cs" />
     <Compile Include="EditWindow.cs">
